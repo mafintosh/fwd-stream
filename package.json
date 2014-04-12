@@ -4,10 +4,10 @@
   "version": "1.0.1",
   "repository": "mafintosh/fwd-stream",
   "dependencies": {
-    "readable-stream": "^1.0.26-4"
+    "readable-stream": "~1.0.26-4"
   },
   "devDependencies": {
-    "tape": "^2.12.3"
+    "tape": "~2.12.3"
   },
   "scripts": {
     "test": "tape test.js"
