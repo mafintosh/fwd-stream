@@ -1,6 +1,6 @@
 {
   "name": "fwd-stream",
-  "description": "forward a readable or writable stream to another readable or writable stream",
+  "description": "Forward a readable stream to another readable stream or a writable stream to another writable stream",
   "version": "0.0.0",
   "repository": "mafintosh/fwd-stream",
   "dependencies": {
