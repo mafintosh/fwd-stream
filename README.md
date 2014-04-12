@@ -70,7 +70,7 @@ var dupl = fwd.duplex(
 
 // or using objectMode
 
-var dupl = fwd.duplex({objectMode:true}, someReadableObjectSTream, someWritableObjectStream);
+var dupl = fwd.duplex({objectMode:true}, someReadableObjStream, someWritableObjStream);
 ```
 
 ## License
