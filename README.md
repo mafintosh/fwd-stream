@@ -5,6 +5,8 @@ Featuring streams2 support and async instantiating.
 
 	npm install fwd-stream
 
+[![build status](https://secure.travis-ci.org/mafintosh/fwd-stream.png)](http://travis-ci.org/mafintosh/fwd-stream)
+
 ## When should I use this?
 
 This module makes it easy to return a stream synchroniously that wraps another stream from an async context.
