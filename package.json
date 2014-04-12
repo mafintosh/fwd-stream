@@ -1,7 +1,7 @@
 {
   "name": "fwd-stream",
   "description": "Forward a readable stream to another readable stream or a writable stream to another writable stream",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "repository": "mafintosh/fwd-stream",
   "dependencies": {
     "readable-stream": "^1.0.26-4"
@@ -10,6 +10,6 @@
     "tape": "^2.12.3"
   },
   "scripts": {
-  	"test": "tape test.js"
+    "test": "tape test.js"
   }
 }
