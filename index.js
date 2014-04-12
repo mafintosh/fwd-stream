@@ -104,11 +104,14 @@ var onwritable = function(ws, init) {
 		});
 
 		ws._write = function(data, enc, cb) {
+			if (data === DUMMY) return cb();
 			source.write(data, enc, cb);
 		};
 
-		ws.on('finish', function() {
-			source.end();
+		var emit = ws.emit;
+
+		source.on('finish', function() {
+			emit.call(ws, 'finish');
 		});
 
 		ws.destroy = function() {
@@ -117,11 +120,9 @@ var onwritable = function(ws, init) {
 			if (source.destroy) source.destroy();
 		};
 
-		ws.end = function(data, enc, cb) {
-			if (typeof data === 'function') return ws.end(null, data);
-			if (typeof enc === 'function') return ws.end(data, null, enc);
-			if (data) ws.write(data, enc);
-			return source.end(cb);
+		ws.emit = function(name) {
+			if (name !== 'finish') return emit.apply(ws, arguments);
+			source.end();
 		};
 
 		if (destroyed) {
