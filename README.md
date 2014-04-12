@@ -5,6 +5,24 @@ Featuring streams2 support and async instantiating.
 
 	npm install fwd-stream
 
+## When should I use this?
+
+This module makes it easy to return a stream synchroniously that wraps another stream from an async context.
+Say for example you wanted to create a folder before writing a write you could do
+
+``` js
+var fs = require('fs');
+var fwd = require('fwd-stream');
+
+var ws = fwd.writable(function(cb) {
+	fs.mkdir('my-folder', function() {
+		cb(null, fs.createWriteStream('my-folder/my-file.txt'));
+	});
+});
+
+ws.write('content of my-file.txt');
+```
+
 ## Usage
 
 Forward readable streams
