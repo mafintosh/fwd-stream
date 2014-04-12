@@ -82,8 +82,8 @@ var onwritable = function(ws, init) {
 	var ready = noop;
 	var destroyed = false;
 
-	ws._write = function(data, enc, rdy) {
-		ready = rdy;
+	ws._write = function(data, enc, cb) {
+		ready = cb;
 	};
 
 	ws.destroy = function() {
@@ -115,6 +115,13 @@ var onwritable = function(ws, init) {
 			if (destroyed) return;
 			destroyed = true;
 			if (source.destroy) source.destroy();
+		};
+
+		ws.end = function(data, enc, cb) {
+			if (typeof data === 'function') return ws.end(null, data);
+			if (typeof enc === 'function') return ws.end(data, null, enc);
+			if (data) ws.write(data, enc);
+			return source.end(cb);
 		};
 
 		if (destroyed) {
