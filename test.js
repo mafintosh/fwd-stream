@@ -1,6 +1,7 @@
 var fwd = require('./');
 var tape = require('tape');
 var PassThrough = require('readable-stream/passthrough');
+var bufferFrom = require('buffer-from');
 
 tape('fwd.readable', function(t) {
 	var rs = fwd.readable({objectMode:true}, function(cb) {
@@ -108,7 +109,7 @@ tape('fwd.writable binary', function(t) {
 			});
 
 			pt.on('end', function() {
-				t.same(Buffer.concat(buf), new Buffer('helloworld'));
+				t.same(Buffer.concat(buf), bufferFrom('helloworld'));
 				t.end();
 			});
 
