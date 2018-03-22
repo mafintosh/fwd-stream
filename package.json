@@ -4,6 +4,7 @@
   "version": "1.0.4",
   "repository": "mafintosh/fwd-stream",
   "dependencies": {
+    "buffer-from": "^1.0.0",
     "readable-stream": "~1.0.26-4"
   },
   "devDependencies": {

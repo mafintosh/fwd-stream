@@ -1,8 +1,9 @@
 var Writable = require('readable-stream/writable');
 var Readable = require('readable-stream/readable');
 var Duplex = require('readable-stream/duplex');
+var bufferFrom = require('buffer-from');
 
-var DUMMY = new Buffer(0);
+var DUMMY = bufferFrom('');
 var noop = function() {};
 
 var toFunction = function(fn) {
